@@ -1,0 +1,5 @@
+var ww=window,doc=document,wLoc=ww.location,lHost=wLoc.hostname,tls='https://';function preloadLink(a,s){const pl=doc.createElement("link");pl.href=a;pl.rel='preload';pl.as=s;doc.head.appendChild(pl)}
+function mainHostName(){var m=lHost.split('.');return m.slice(-2).join('.')}
+const jCDN0=`cdn.${mainHostName()}/0/`;(function(){const d=doc.querySelector('input[name="light-dark"]'),a=ww.matchMedia('(prefers-color-scheme: dark)'),r=localStorage.getItem('color-scheme'),k=function(s){localStorage.setItem('color-scheme',s);if(s==='dark'){d.checked=!0}else{d.checked=!1}};if(r){k(r)}else if(ww.matchMedia){if(a.matches){k('dark')}else{k('light')}}
+d.addEventListener('change',function(){if(this.checked){k('dark')}else{k('light')}});if(ww.matchMedia){a.addEventListener('change',function(){if(this.matches){k('dark')}else{k('light')}})}
+const min=`${tls}${jCDN0}vanilla.js${variSet.vanilla}`;preloadLink(min,'script');var v=doc.createElement('script');v.src=min;v.type='text/javascript';v.onerror=function(){console.error('Error: vanilla.js')};doc.body.appendChild(v)})();
